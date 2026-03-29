@@ -1,0 +1,231 @@
+{
+  "kind": "build_request",
+  "title": "Animated Candles E-Commerce App — Full Stack Initial Build",
+  "projectName": "Luminary Candles",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Design and apply a cohesive visual theme using blue, white, pink, and violet as the primary palette. The UI should feel elegant and romantic, with soft gradients, glowing candle-inspired accents, and smooth micro-animations throughout. Typography should be refined and readable. Layout must be fully responsive across mobile phones, tablets, laptops, and desktop screens.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "ब्लू वाइट पिंक वायलेट",
+          "फोन, वेबसाइट और कंप्यूटर, लैपटॉप सबके लिए अवेलेबल हो"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All pages use only blue, white, pink, and violet color tokens",
+        "UI renders correctly and looks polished at mobile (375px), tablet (768px), and desktop (1280px) breakpoints",
+        "Animated glow and flicker effects are visible on candle-themed UI elements"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Build a Login page supporting sign-in via email+password and Google OAuth. Build a separate Registration page supporting sign-up via email address, phone number, and Google OAuth. Both pages must follow the blue/white/pink/violet theme with animated candle background elements.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "लॉगिन पेज",
+          "New register",
+          "Through phone number and email",
+          "And with Google login"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Login page accepts email+password credentials and Google OAuth sign-in",
+        "Registration page accepts name, email, phone number, password, and Google OAuth",
+        "Successful login/registration redirects to the home/product listing page",
+        "Form validation errors are shown inline with clear messages",
+        "Both pages display animated candle visual elements in the background"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Implement a Candle Product Catalog backend that stores product records including: name, description, price (INR), stock quantity, category, and one or more photo URLs. Expose backend methods to create, read, update, and delete products (admin), and to list/filter products (public).",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "मैं अपने कैंडल्स के फोटो अपलोड करूंगा"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Backend stores product records with all specified fields",
+        "Admin can add, edit, and delete candle products",
+        "Public listing query returns paginated product results",
+        "Photo URLs are stored and returned with product data"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Build a Product Listing / Home page that displays all available candle products as cards with photo, name, price, and an Add-to-Cart button. Include animated candle flame effects on product cards (CSS/Lottie-style flicker animation). Each card links to a Product Detail page showing full description, photos, price, stock status, user reviews & ratings, and Add-to-Cart / Add-to-Wishlist actions.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "वह फोटोस को अगर किसी को पसंद रहेगा तो वह अपने का कार्ड में ऐड करेगा",
+          "एक फुल एनीमेशन का कैंडल्स"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Product cards display photo, name, and price with animated candle flame effect",
+        "Clicking a card opens a Product Detail page with full info",
+        "Add-to-Cart button is present and functional on both listing and detail pages",
+        "Add-to-Wishlist button is present on the detail page",
+        "Reviews and star ratings are displayed on the detail page"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Implement a Shopping Cart and Checkout flow. Users can view cart items, adjust quantities, remove items, and proceed to checkout. The checkout page collects shipping address and displays order summary. Integrate a simulated Stripe payment flow (since UPI direct API integration is not available in this platform, use Stripe as the payment gateway which supports INR).",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "उसे परचेस करेगा",
+          "UPI से कर सकते हैं पेमेंट",
+          "आसान चेकआउट"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Cart page lists all added items with quantity controls and remove option",
+        "Order total is calculated correctly including item quantities",
+        "Checkout page collects shipping address fields",
+        "Stripe payment form is rendered and a test payment can be submitted",
+        "Order confirmation is shown after successful payment"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Implement a Wishlist / Favorites feature. Logged-in users can add candle products to their wishlist, view their wishlist page, and move items from wishlist to cart.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "एक पसंदीदा कैंडल्स की लिस्ट बनाने का फीचर"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Heart/bookmark icon on product cards and detail pages adds/removes from wishlist",
+        "Wishlist page shows all saved products",
+        "Move-to-Cart button on wishlist items works correctly",
+        "Wishlist data is persisted per user account"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Implement a Loyalty / Rewards Program. Users earn points on each completed purchase (e.g., 1 point per ₹10 spent). A Rewards page shows the user's current point balance, points history, and available rewards/discounts they can redeem.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "loyalty प्रोग्राम भी कस्टमर्स को बनाए रखने में मदद कर सकता है"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Points are awarded to user account after a completed order",
+        "User's rewards page displays current point balance and transaction history",
+        "At least one reward redemption option is shown (e.g., discount coupon)"
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Add an AI Chatbot widget that appears as a floating button on all pages. When opened, it shows a chat panel where users can type questions and receive automated helpful responses about candles, orders, and the store. The chatbot should simulate AI responses (rule-based or scripted) since external AI API integrations are not supported.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "एक चैट बोर्ड पर रख दो ताकि कस्टमर उस एआई से बात कर सके"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Floating chatbot button is visible on all pages",
+        "Clicking it opens a chat panel with a message input",
+        "Bot responds with helpful scripted answers to common queries (e.g., order status, candle types, delivery)",
+        "Chat panel matches the blue/white/pink/violet theme"
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Add a Customer Care / Support page accessible from the navigation. It should include a contact form (name, email, subject, message), a FAQ section with common candle business questions, and business contact details. Also include a Live Chat placeholder section with support availability hours.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "कस्टमर केयर भी ऐड कर देना",
+          "लाइव चैट का ऑप्शन"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Customer Care page is reachable via main navigation",
+        "Contact form submits and stores the inquiry in the backend",
+        "FAQ section shows at least 5 relevant questions and answers",
+        "Live chat section clearly shows support hours and a contact prompt"
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "text": "Create a User Reviews & Ratings backend. Logged-in users who have purchased a product can submit a star rating (1–5) and a text review. Expose methods to submit a review and fetch reviews by product ID.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "यूज़र रिव्युज़ और रेटिंग्स"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Review submission stores user ID, product ID, rating, review text, and timestamp",
+        "Only users with a completed purchase of the product can submit a review",
+        "Reviews for a product are returned sorted by newest first",
+        "Average star rating is computed and returned per product"
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not use external AI APIs (OpenAI, Gemini, etc.) for the chatbot — use scripted/rule-based responses only",
+    "UPI direct API is not available; use Stripe (which supports INR) as the payment gateway",
+    "Google OAuth must be implemented as a frontend UI pattern only — do not use Auth0 or Facebook; Internet Identity is the supported auth method, so Google login should be presented as a UI option that maps to the available auth system",
+    "Color palette must strictly use blue, white, pink, and violet — no other dominant colors",
+    "All Motoko logic must remain in a single backend actor file"
+  ],
+  "nonGoals": [
+    "Native mobile app (iOS/Android) — web responsive only",
+    "Real-time WebSocket-based live chat",
+    "SMS OTP verification for phone number registration",
+    "External social media API integrations (Instagram shopping, etc.)",
+    "Multi-vendor marketplace — single seller (owner) only",
+    "Inventory management dashboard beyond basic product CRUD"
+  ],
+  "imageRequirements": {
+    "required": [
+      "Hero banner with glowing candles arrangement on a dark romantic background with soft blue, pink and violet bokeh light effects (hero-banner.dim_1440x600.png)",
+      "Animated-style candle flame illustration with violet and pink glow for use as a decorative UI element (candle-flame-icon.dim_256x256.png)",
+      "App logo — stylized candle with a glowing flame using pink and violet colors on a white background (luminary-logo.dim_400x400.png)",
+      "Background texture — dark deep blue with subtle violet gradient and faint sparkle particles for auth pages (auth-bg.dim_1440x900.png)"
+    ],
+    "edits": []
+  }
+}

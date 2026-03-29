@@ -1,0 +1,334 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Luminary Candles Frontend Implementation",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Design and apply a cohesive visual theme using blue, white, pink, and violet with elegant candle-inspired aesthetics and full responsive layout",
+      "acceptanceCriteria": [
+        "All pages use only blue, white, pink, and violet color tokens",
+        "UI renders correctly and looks polished at mobile (375px), tablet (768px), and desktop (1280px) breakpoints",
+        "Animated glow and flicker effects are visible on candle-themed UI elements"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Define CSS custom properties for blue, white, pink, and violet color palette. Add keyframe animations for candle glow and flicker effects. Ensure base styles support responsive breakpoints."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend Tailwind theme with custom blue, white, pink, and violet color tokens. Configure responsive breakpoints for mobile (375px), tablet (768px), and desktop (1280px). Add custom animation utilities for candle flame effects."
+        },
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "create",
+          "description": "Create a responsive layout component that wraps all pages with consistent header, navigation, and footer. Apply the blue/white/pink/violet theme using Tailwind classes. Include candle-inspired decorative elements with glow animations."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Build Login and Registration pages with email+password and Google OAuth UI, following the candle theme",
+      "acceptanceCriteria": [
+        "Login page accepts email+password credentials and Google OAuth sign-in",
+        "Registration page accepts name, email, phone number, password, and Google OAuth",
+        "Successful login/registration redirects to the home/product listing page",
+        "Form validation errors are shown inline with clear messages",
+        "Both pages display animated candle visual elements in the background"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Login.tsx",
+          "operation": "create",
+          "description": "Create Login page with email+password form fields and Google OAuth button. Use the authorization component for Internet Identity login mapped to the UI. Include form validation with inline error messages. Apply blue/white/pink/violet theme. Use the generated auth-bg.dim_1440x900.png from frontend/public/assets/generated/auth-bg.dim_1440x900.png as background. On successful login, redirect to product listing page."
+        },
+        {
+          "path": "frontend/src/pages/Register.tsx",
+          "operation": "create",
+          "description": "Create Registration page with fields for name, email, phone number, password, and Google OAuth button. Use the authorization component for Internet Identity registration mapped to the UI. Include form validation with inline error messages. Apply blue/white/pink/violet theme. Use the generated auth-bg.dim_1440x900.png from frontend/public/assets/generated/auth-bg.dim_1440x900.png as background. On successful registration, redirect to product listing page."
+        },
+        {
+          "path": "frontend/src/hooks/useAuth.ts",
+          "operation": "create",
+          "description": "Create custom hook to handle login, registration, and profile setup flows. Use the authorization component's useInternetIdentity hook. Check for existing user profile with getCallerUserProfile and prompt for profile setup if null. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/ProfileSetupModal.tsx",
+          "operation": "create",
+          "description": "Create modal component that prompts new users to enter their name, email, and phone number on first login. Use saveCallerUserProfile from the authorization component to save the profile. Follow component usage instructions for preventing modal flash by checking isFetched state before showing."
+        },
+        {
+          "path": "frontend/src/routes/index.tsx",
+          "operation": "modify",
+          "description": "Register /login and /register routes using @tanstack/router. Wire Login and Register pages into the routing structure."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Build Product Listing / Home page with animated candle cards and Product Detail page with full info, reviews, and actions",
+      "acceptanceCriteria": [
+        "Product cards display photo, name, and price with animated candle flame effect",
+        "Clicking a card opens a Product Detail page with full info",
+        "Add-to-Cart button is present and functional on both listing and detail pages",
+        "Add-to-Wishlist button is present on the detail page",
+        "Reviews and star ratings are displayed on the detail page"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/ProductListing.tsx",
+          "operation": "create",
+          "description": "Create Product Listing page that fetches products using getProducts backend method. Display products as cards in a responsive grid. Each card shows product photo from photoUrls (use ExternalBlob.getDirectURL()), name, and priceINR. Apply candle-flame-icon.dim_256x256.png from frontend/public/assets/generated/candle-flame-icon.dim_256x256.png as decorative element with flicker animation. Include Add-to-Cart button on each card. Link cards to Product Detail page using productId."
+        },
+        {
+          "path": "frontend/src/pages/ProductDetail.tsx",
+          "operation": "create",
+          "description": "Create Product Detail page that fetches single product using getProductById and reviews using getReviewsByProduct. Display full product info including description, category, stockQuantity, and all photos. Show user reviews with star ratings. Include Add-to-Cart and Add-to-Wishlist buttons. Apply blue/white/pink/violet theme with candle glow effects."
+        },
+        {
+          "path": "frontend/src/components/ProductCard.tsx",
+          "operation": "create",
+          "description": "Create reusable ProductCard component displaying product photo, name, price, and Add-to-Cart button. Use blob-storage component's ExternalBlob.getDirectURL() for product images. Include animated candle flame effect using CSS keyframes. Verify the blob-storage component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/ReviewList.tsx",
+          "operation": "create",
+          "description": "Create ReviewList component that displays product reviews with star ratings, user names, review text, and timestamps. Calculate and show average rating."
+        },
+        {
+          "path": "frontend/src/hooks/useProducts.ts",
+          "operation": "create",
+          "description": "Create custom hooks for fetching products: useGetProducts, useGetProductById, useGetProductsByCategory. Use @tanstack/react-query for caching."
+        },
+        {
+          "path": "frontend/src/hooks/useReviews.ts",
+          "operation": "create",
+          "description": "Create custom hook useGetReviewsByProduct to fetch product reviews. Use @tanstack/react-query for caching."
+        },
+        {
+          "path": "frontend/src/routes/index.tsx",
+          "operation": "modify",
+          "description": "Register / route for ProductListing page and /product/:productId route for ProductDetail page using @tanstack/router. Wire both pages into the routing structure."
+        },
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "modify",
+          "description": "Add navigation link to Product Listing page (home) in the Layout header. Use the generated luminary-logo.dim_400x400.png from frontend/public/assets/generated/luminary-logo.dim_400x400.png as the app logo in the header."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Implement Shopping Cart and Checkout flow with Stripe payment integration",
+      "acceptanceCriteria": [
+        "Cart page lists all added items with quantity controls and remove option",
+        "Order total is calculated correctly including item quantities",
+        "Checkout page collects shipping address fields",
+        "Stripe payment form is rendered and a test payment can be submitted",
+        "Order confirmation is shown after successful payment"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Cart.tsx",
+          "operation": "create",
+          "description": "Create Cart page that displays cart items fetched using getCart backend method. Show product photo, name, price, quantity controls (increment/decrement), and remove button for each item. Calculate and display order total. Include 'Proceed to Checkout' button that navigates to Checkout page. Use updateCart to persist changes."
+        },
+        {
+          "path": "frontend/src/pages/Checkout.tsx",
+          "operation": "create",
+          "description": "Create Checkout page with form fields for shipping address (name, street, city, state, postal code, country). Display order summary from cart. Use the stripe component's useCreateCheckoutSession hook to initiate Stripe payment. Verify the component's usage instructions before implementing. On successful session creation, redirect to Stripe URL using window.location.href (not router navigation). Validate session.url is not empty before redirecting."
+        },
+        {
+          "path": "frontend/src/pages/PaymentSuccess.tsx",
+          "operation": "create",
+          "description": "Create PaymentSuccess page that shows order confirmation message with candle-themed success illustration. Display order details and thank you message. Apply blue/white/pink/violet theme."
+        },
+        {
+          "path": "frontend/src/pages/PaymentFailure.tsx",
+          "operation": "create",
+          "description": "Create PaymentFailure page that shows payment failure message with retry option. Include link back to Cart page. Apply blue/white/pink/violet theme."
+        },
+        {
+          "path": "frontend/src/hooks/useCart.ts",
+          "operation": "create",
+          "description": "Create custom hooks for cart operations: useGetCart, useUpdateCart, useAddToCart, useRemoveFromCart. Use @tanstack/react-query for state management and backend sync."
+        },
+        {
+          "path": "frontend/src/hooks/useCheckout.ts",
+          "operation": "create",
+          "description": "Create custom hook useCreateCheckoutSession using the stripe component. Parse JSON response and validate session.url exists before redirecting. Verify the component's usage instructions before implementing. Convert CartItem[] to ShoppingItem[] format (priceInCents = priceINR * 100, currency = 'inr')."
+        },
+        {
+          "path": "frontend/src/components/PaymentSetup.tsx",
+          "operation": "create",
+          "description": "Create PaymentSetup component for admin to configure Stripe. Use the stripe component's isStripeConfigured and setStripeConfiguration methods. Show setup form only if Stripe is not configured. Verify the component's usage instructions before implementing. Request secretKey and allowedCountries array."
+        },
+        {
+          "path": "frontend/src/routes/index.tsx",
+          "operation": "modify",
+          "description": "Register /cart, /checkout, /payment-success, and /payment-failure routes using @tanstack/router. Wire Cart, Checkout, PaymentSuccess, and PaymentFailure pages into the routing structure."
+        },
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "modify",
+          "description": "Add cart icon with item count badge in the Layout header navigation. Link to Cart page."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Implement Wishlist / Favorites feature for logged-in users",
+      "acceptanceCriteria": [
+        "Heart/bookmark icon on product cards and detail pages adds/removes from wishlist",
+        "Wishlist page shows all saved products",
+        "Move-to-Cart button on wishlist items works correctly",
+        "Wishlist data is persisted per user account"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Wishlist.tsx",
+          "operation": "create",
+          "description": "Create Wishlist page that displays wishlist items fetched using getWishlist backend method. For each wishlist item, fetch product details using getProductById. Show product photo, name, price, and Move-to-Cart button. Include remove from wishlist option. Apply blue/white/pink/violet theme."
+        },
+        {
+          "path": "frontend/src/hooks/useWishlist.ts",
+          "operation": "create",
+          "description": "Create custom hooks for wishlist operations: useGetWishlist, useUpdateWishlist, useAddToWishlist, useRemoveFromWishlist, useMoveToCart. Use @tanstack/react-query for state management and backend sync. Require user authentication before allowing wishlist operations."
+        },
+        {
+          "path": "frontend/src/components/WishlistButton.tsx",
+          "operation": "create",
+          "description": "Create reusable WishlistButton component showing heart/bookmark icon. Toggle wishlist state on click. Show filled icon if product is in wishlist, outlined otherwise. Use useWishlist hooks for state management."
+        },
+        {
+          "path": "frontend/src/components/ProductCard.tsx",
+          "operation": "modify",
+          "description": "Add WishlistButton component to ProductCard. Position it in the top-right corner of the card."
+        },
+        {
+          "path": "frontend/src/pages/ProductDetail.tsx",
+          "operation": "modify",
+          "description": "Add WishlistButton component to Product Detail page alongside Add-to-Cart button."
+        },
+        {
+          "path": "frontend/src/routes/index.tsx",
+          "operation": "modify",
+          "description": "Register /wishlist route using @tanstack/router. Wire Wishlist page into the routing structure. Add authentication guard to ensure only logged-in users can access."
+        },
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "modify",
+          "description": "Add wishlist/heart icon in the Layout header navigation. Link to Wishlist page. Show item count badge if wishlist is non-empty."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Implement Loyalty / Rewards Program with points display and redemption",
+      "acceptanceCriteria": [
+        "Points are awarded to user account after a completed order",
+        "User's rewards page displays current point balance and transaction history",
+        "At least one reward redemption option is shown (e.g., discount coupon)"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Rewards.tsx",
+          "operation": "create",
+          "description": "Create Rewards page that displays user's current points balance using getUserPoints and points history using getPointsHistory. Show available rewards fetched using getRewards. Include redemption buttons for each reward (UI only, backend handles actual redemption). Apply blue/white/pink/violet theme with candle glow accents."
+        },
+        {
+          "path": "frontend/src/hooks/useRewards.ts",
+          "operation": "create",
+          "description": "Create custom hooks for rewards: useGetUserPoints, useGetPointsHistory, useGetRewards. Use @tanstack/react-query for caching. Require user authentication before fetching rewards data."
+        },
+        {
+          "path": "frontend/src/components/PointsBalance.tsx",
+          "operation": "create",
+          "description": "Create reusable PointsBalance component that displays user's current loyalty points with candle-themed badge design. Use useGetUserPoints hook."
+        },
+        {
+          "path": "frontend/src/routes/index.tsx",
+          "operation": "modify",
+          "description": "Register /rewards route using @tanstack/router. Wire Rewards page into the routing structure. Add authentication guard to ensure only logged-in users can access."
+        },
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "modify",
+          "description": "Add Rewards navigation link in the Layout header. Show PointsBalance component for logged-in users."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Add AI Chatbot widget with floating button and scripted responses",
+      "acceptanceCriteria": [
+        "Floating chatbot button is visible on all pages",
+        "Clicking it opens a chat panel with a message input",
+        "Bot responds with helpful scripted answers to common queries (e.g., order status, candle types, delivery)",
+        "Chat panel matches the blue/white/pink/violet theme"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Chatbot.tsx",
+          "operation": "create",
+          "description": "Create Chatbot component with floating button that toggles chat panel. Panel includes message history display and text input. Implement rule-based response logic for common queries about candles, orders, and store policies. No external AI APIs. Apply blue/white/pink/violet theme. Position floating button in bottom-right corner."
+        },
+        {
+          "path": "frontend/src/utils/chatbotResponses.ts",
+          "operation": "create",
+          "description": "Create utility module with scripted chatbot responses. Map keywords to predefined answers for common questions about candle types, scents, order tracking, delivery times, returns, and store policies. Use simple pattern matching to select appropriate responses."
+        },
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "modify",
+          "description": "Add Chatbot component to Layout so it appears on all pages as a persistent floating widget."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Add Customer Care / Support page with contact form, FAQ, and live chat placeholder",
+      "acceptanceCriteria": [
+        "Customer Care page is reachable via main navigation",
+        "Contact form submits and stores the inquiry in the backend",
+        "FAQ section shows at least 5 relevant questions and answers",
+        "Live chat section clearly shows support hours and a contact prompt"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/CustomerCare.tsx",
+          "operation": "create",
+          "description": "Create Customer Care page with three sections: contact form (name, email, subject, message fields), FAQ accordion with 5+ common candle business questions/answers, and live chat placeholder showing support availability hours. Apply blue/white/pink/violet theme. Use addSupportRequest backend method to submit contact form."
+        },
+        {
+          "path": "frontend/src/hooks/useSupport.ts",
+          "operation": "create",
+          "description": "Create custom hook useAddSupportRequest to submit customer care inquiries using addSupportRequest backend method. Use @tanstack/react-query mutation for form submission."
+        },
+        {
+          "path": "frontend/src/components/ContactForm.tsx",
+          "operation": "create",
+          "description": "Create reusable ContactForm component with validation. Fields: name, email, subject, message. On submit, use useAddSupportRequest hook. Show success message after submission."
+        },
+        {
+          "path": "frontend/src/components/FAQ.tsx",
+          "operation": "create",
+          "description": "Create FAQ component displaying at least 5 accordion items with common questions about candle types, scents, care instructions, shipping, and returns. Use shadcn/ui Accordion component for expandable Q&A."
+        },
+        {
+          "path": "frontend/src/routes/index.tsx",
+          "operation": "modify",
+          "description": "Register /customer-care route using @tanstack/router. Wire CustomerCare page into the routing structure."
+        },
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "modify",
+          "description": "Add Customer Care navigation link in the Layout header or footer."
+        }
+      ]
+    }
+  ]
+}

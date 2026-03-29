@@ -1,0 +1,204 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-design-and-apply-a-cohesive-visual-theme-using-blue-white-pink-and-violet-as-the-primary-palette-the-ui-should-feel-elegant-and-romantic-with-soft-gradients-glowing-candle-inspired-accents-and-smooth-micro-animations-throughout-typography-should-be-refined-and-readable-layout-must-be-fully-responsive-across-mobile-phones-tablets-laptops-and-desktop-screens",
+      "featureTitle": "Design and apply a cohesive visual theme using blue, white, pink, and violet as the primary palette. The UI should feel elegant and romantic, with soft gradients, glowing candle-inspired accents, and smooth micro-animations throughout. Typography should be refined and readable. Layout must be fully responsive across mobile phones, tablets, laptops, and desktop screens.",
+      "files": [
+        "frontend/src/components/Layout.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "stripe@3.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "http-outcalls@3.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-a-login-page-supporting-sign-in-via-email-password-and-google-oauth-build-a-separate-registration-page-supporting-sign-up-via-email-address-phone-number-and-google-oauth-both-pages-must-follow-the-blue-white-pink-violet-theme-with-animated-candle-background-elements",
+      "featureTitle": "Build a Login page supporting sign-in via email+password and Google OAuth. Build a separate Registration page supporting sign-up via email address, phone number, and Google OAuth. Both pages must follow the blue/white/pink/violet theme with animated candle background elements.",
+      "files": [
+        "frontend/src/components/ProfileSetupModal.tsx",
+        "frontend/src/pages/Login.tsx",
+        "frontend/src/pages/Register.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "stripe@3.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "http-outcalls@3.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-a-product-listing-home-page-that-displays-all-available-candle-products-as-cards-with-photo-name-price-and-an-add-to-cart-button-include-animated-candle-flame-effects-on-product-cards-css-lottie-style-flicker-animation-each-card-links-to-a-product-detail-page-showing-full-description-photos-price-stock-status-user-reviews-ratings-and-add-to-cart-add-to-wishlist-actions",
+      "featureTitle": "Build a Product Listing / Home page that displays all available candle products as cards with photo, name, price, and an Add-to-Cart button. Include animated candle flame effects on product cards (CSS/Lottie-style flicker animation). Each card links to a Product Detail page showing full description, photos, price, stock status, user reviews & ratings, and Add-to-Cart / Add-to-Wishlist actions.",
+      "files": [
+        "frontend/src/components/Layout.tsx",
+        "frontend/src/components/ProductCard.tsx",
+        "frontend/src/components/ReviewList.tsx",
+        "frontend/src/pages/ProductDetail.tsx",
+        "frontend/src/pages/ProductListing.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "stripe@3.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "http-outcalls@3.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-a-shopping-cart-and-checkout-flow-users-can-view-cart-items-adjust-quantities-remove-items-and-proceed-to-checkout-the-checkout-page-collects-shipping-address-and-displays-order-summary-integrate-a-simulated-stripe-payment-flow-since-upi-direct-api-integration-is-not-available-in-this-platform-use-stripe-as-the-payment-gateway-which-supports-inr",
+      "featureTitle": "Implement a Shopping Cart and Checkout flow. Users can view cart items, adjust quantities, remove items, and proceed to checkout. The checkout page collects shipping address and displays order summary. Integrate a simulated Stripe payment flow (since UPI direct API integration is not available in this platform, use Stripe as the payment gateway which supports INR).",
+      "files": [
+        "frontend/src/components/Layout.tsx",
+        "frontend/src/components/PaymentSetup.tsx",
+        "frontend/src/pages/Cart.tsx",
+        "frontend/src/pages/Checkout.tsx",
+        "frontend/src/pages/PaymentFailure.tsx",
+        "frontend/src/pages/PaymentSuccess.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "stripe@3.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "http-outcalls@3.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-a-wishlist-favorites-feature-logged-in-users-can-add-candle-products-to-their-wishlist-view-their-wishlist-page-and-move-items-from-wishlist-to-cart",
+      "featureTitle": "Implement a Wishlist / Favorites feature. Logged-in users can add candle products to their wishlist, view their wishlist page, and move items from wishlist to cart.",
+      "files": [
+        "frontend/src/components/Layout.tsx",
+        "frontend/src/components/ProductCard.tsx",
+        "frontend/src/components/WishlistButton.tsx",
+        "frontend/src/pages/ProductDetail.tsx",
+        "frontend/src/pages/Wishlist.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "stripe@3.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "http-outcalls@3.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-a-loyalty-rewards-program-users-earn-points-on-each-completed-purchase-e-g-1-point-per-10-spent-a-rewards-page-shows-the-user-s-current-point-balance-points-history-and-available-rewards-discounts-they-can-redeem",
+      "featureTitle": "Implement a Loyalty / Rewards Program. Users earn points on each completed purchase (e.g., 1 point per ₹10 spent). A Rewards page shows the user's current point balance, points history, and available rewards/discounts they can redeem.",
+      "files": [
+        "frontend/src/components/Layout.tsx",
+        "frontend/src/pages/Rewards.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "stripe@3.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "http-outcalls@3.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-an-ai-chatbot-widget-that-appears-as-a-floating-button-on-all-pages-when-opened-it-shows-a-chat-panel-where-users-can-type-questions-and-receive-automated-helpful-responses-about-candles-orders-and-the-store-the-chatbot-should-simulate-ai-responses-rule-based-or-scripted-since-external-ai-api-integrations-are-not-supported",
+      "featureTitle": "Add an AI Chatbot widget that appears as a floating button on all pages. When opened, it shows a chat panel where users can type questions and receive automated helpful responses about candles, orders, and the store. The chatbot should simulate AI responses (rule-based or scripted) since external AI API integrations are not supported.",
+      "files": [
+        "frontend/src/components/Chatbot.tsx",
+        "frontend/src/components/Layout.tsx",
+        "frontend/src/utils/chatbotResponses.ts"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "stripe@3.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "http-outcalls@3.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-a-customer-care-support-page-accessible-from-the-navigation-it-should-include-a-contact-form-name-email-subject-message-a-faq-section-with-common-candle-business-questions-and-business-contact-details-also-include-a-live-chat-placeholder-section-with-support-availability-hours",
+      "featureTitle": "Add a Customer Care / Support page accessible from the navigation. It should include a contact form (name, email, subject, message), a FAQ section with common candle business questions, and business contact details. Also include a Live Chat placeholder section with support availability hours.",
+      "files": [
+        "frontend/src/components/ContactForm.tsx",
+        "frontend/src/components/FAQ.tsx",
+        "frontend/src/components/Layout.tsx",
+        "frontend/src/pages/CustomerCare.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "stripe@3.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "http-outcalls@3.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

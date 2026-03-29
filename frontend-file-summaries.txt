@@ -1,0 +1,11 @@
+{
+  "frontend/src/pages/ProductDetail.tsx": "Full product detail page showing images, description, stock, add-to-cart/wishlist actions, quantity selector, and a review section with star rating submission form.",
+  "frontend/src/pages/Cart.tsx": "Shopping cart page displaying all cart items with quantity controls, remove buttons, order total calculation, and a proceed-to-checkout button; handles unauthenticated and empty states.",
+  "frontend/src/pages/Checkout.tsx": "Checkout page with shipping address form, order summary sidebar, and Stripe payment session creation that redirects to Stripe's hosted checkout URL.",
+  "frontend/src/pages/PaymentSuccess.tsx": "Order confirmation page shown after successful Stripe payment, with next-steps guide, rewards notice, and navigation actions.",
+  "frontend/src/pages/PaymentFailure.tsx": "Payment failure page with common failure reasons, retry button, back-to-cart link, and customer support link.",
+  "frontend/src/pages/Wishlist.tsx": "Wishlist page showing saved products with move-to-cart and remove actions; handles unauthenticated and empty states.",
+  "frontend/src/pages/Rewards.tsx": "Loyalty rewards page displaying points balance, available rewards with redemption progress bars, points history, and how-to-earn guide.",
+  "frontend/src/pages/CustomerCare.tsx": "Customer care page with contact info cards, a contact form, live chat availability schedule, quick help topics, and an FAQ accordion.",
+  "frontend/src/pages/AdminPage.tsx": "Admin panel for managing candle products (add/edit/delete) with a product form, product list, and Stripe configuration access; protected by admin role check."
+}
